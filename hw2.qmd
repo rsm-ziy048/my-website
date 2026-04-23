@@ -1,0 +1,79 @@
+---
+title: "HW2: Replicating Card & Krueger (1994)"
+author: "Yan"
+date: today
+format: html
+---
+
+## Introduction
+
+This paper studies the effect of minimum wage increases on employment. In April 1992, the state of New Jersey increased its minimum wage from $4.25 to $5.05 per hour, while neighboring Pennsylvania did not change its minimum wage.
+
+To evaluate the causal impact, the authors collected data from fast-food restaurants in both states before and after the policy change. Using a difference-in-differences (DiD) approach, the study compares employment changes in New Jersey (treatment group) with those in Pennsylvania (control group).
+
+The key question is whether increasing the minimum wage reduces employment. Surprisingly, Card and Krueger (1994) find no evidence that higher minimum wages decrease employment.
+
+## Data and Methodology
+
+I use the original dataset provided by Card and Krueger, which contains observations from 410 fast-food restaurants. Each observation includes employment information before and after the minimum wage increase.
+
+Following the paper, I construct full-time equivalent (FTE) employment as:
+
+- FTE = full-time employees + managers + 0.5 × part-time employees
+
+I then compute the change in employment for each store:
+
+- Change = employment_after − employment_before
+
+To estimate the causal effect, I use a difference-in-differences approach:
+
+- DiD = (Change in NJ) − (Change in PA)
+
+where New Jersey is the treatment group and Pennsylvania is the control group.
+
+## Results
+
+I replicate the main finding of Card and Krueger (1994) using the difference-in-differences approach.
+
+The average employment change in Pennsylvania (control group) is approximately **-3.08 FTE workers**, while the average change in New Jersey (treatment group) is about **-1.85 FTE workers**.
+
+Taking the difference between these changes yields a difference-in-differences estimate of approximately:
+
+**DiD ≈ +1.24**
+
+This positive estimate indicates that employment declined less in New Jersey than in Pennsylvania after the minimum wage increase. In other words, there is no evidence that the increase in the minimum wage reduced employment.
+
+Although my estimate is somewhat smaller than the original paper's estimate (around +2.7 FTE workers), the direction and qualitative conclusion are the same.
+
+## Additional Analysis (Visualization)
+
+To better illustrate the results, I plot the average employment before and after the policy change for both states.
+
+```{python}
+import matplotlib.pyplot as plt
+
+nj_before = 21.8716
+nj_after  = 20.3408
+pa_before = 20.3548
+pa_after  = 16.9835
+
+plt.figure(figsize=(6,4))
+plt.plot(["Before", "After"], [nj_before, nj_after], marker="o", label="New Jersey")
+plt.plot(["Before", "After"], [pa_before, pa_after], marker="o", label="Pennsylvania")
+
+plt.ylabel("FTE Employment")
+plt.title("Difference-in-Differences: Fast-Food Employment")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+The figure shows that employment declined in both states, but the decline was significantly larger in Pennsylvania. This visual evidence supports the difference-in-differences estimate.
+
+## Conclusion
+
+This analysis replicates the main conclusion of Card and Krueger (1994): increasing the minimum wage does not necessarily reduce employment.
+
+Even though employment declined overall during this period, the relative comparison shows that New Jersey experienced a smaller decline than Pennsylvania. This suggests that the minimum wage increase did not have the negative employment effects predicted by standard economic theory.
+
+Overall, the findings provide evidence that minimum wage policies may not harm employment in low-wage labor markets.

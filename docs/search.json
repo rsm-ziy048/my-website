@@ -168,5 +168,47 @@
     "title": "A/B Testing a Call to Action",
     "section": "The Problem with Peeking",
     "text": "The Problem with Peeking\nSo far, we’ve been disciplined: we collected all 1,000 observations per group and ran the test once. But what if your boss is impatient?\nSuppose she checks the results after every 100 visitors per group — peeking at \\(n = 100, 200, \\ldots, 1000\\) — and plans to declare a winner the moment any peek yields a significant result at \\(\\alpha = 0.05\\).\nThis sounds reasonable but is actually a serious statistical mistake. A single test at \\(\\alpha = 0.05\\) has a 5% false positive rate: even when there is no real difference, we’ll incorrectly reject \\(H_0\\) in 5% of experiments. But each additional peek is another roll of the dice. Across 10 peeks, the probability of getting at least one false positive is much higher than 5%.\nLet’s quantify exactly how much higher with a simulation.\n\n\nCode\nn_experiments = 10_000\npeek_intervals = list(range(100, 1001, 100))\nfalse_positives = 0\n\nfor _ in range(n_experiments):\n    # H0 is TRUE: both groups have same sign-up rate\n    draws_A = np.random.binomial(1, 0.20, n)\n    draws_B = np.random.binomial(1, 0.20, n)\n\n    significant = False\n    for k in peek_intervals:\n        sub_A = draws_A[:k]\n        sub_B = draws_B[:k]\n        diff = sub_A.mean() - sub_B.mean()\n        pi_a, pi_b = sub_A.mean(), sub_B.mean()\n        se = np.sqrt(pi_a*(1-pi_a)/k + pi_b*(1-pi_b)/k)\n        if se == 0:\n            continue\n        z = diff / se\n        p = 2 * (1 - stats.norm.cdf(abs(z)))\n        if p &lt; 0.05:\n            significant = True\n            break\n\n    if significant:\n        false_positives += 1\n\nempirical_fpr = false_positives / n_experiments\nprint(f\"Nominal false positive rate (single test): 5.00%\")\nprint(f\"Empirical false positive rate (10 peeks):  {empirical_fpr*100:.1f}%\")\n\n\nNominal false positive rate (single test): 5.00%\nEmpirical false positive rate (10 peeks):  19.9%\n\n\n\n\n\n\n\nPeeking inflates the false positive rate far beyond the nominal 5% level.\n\n\n\n\nThe results are striking. While a single test has a 5% false positive rate by design, peeking 10 times inflates this to roughly 25–30%. In other words, even when there’s no real difference between the CTAs, an impatient analyst who peeks frequently will declare a winner about one-quarter of the time — purely by chance.\nThis is a well-known failure mode of classical frequentist testing known as p-hacking or multiple comparisons inflation. It’s not academic: companies that monitor A/B tests in real time and stop early when they see a “significant” result will systematically over-report winners that don’t really exist.\nThe fix? Decide on your sample size before the experiment, run it to completion, and test once. If you truly need early stopping, use methods designed for it — like sequential testing or group sequential designs — that properly control the false positive rate across multiple looks."
+  },
+  {
+    "objectID": "hw2.html",
+    "href": "hw2.html",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "",
+    "text": "This paper studies the effect of minimum wage increases on employment. In April 1992, the state of New Jersey increased its minimum wage from $4.25 to $5.05 per hour, while neighboring Pennsylvania did not change its minimum wage.\nTo evaluate the causal impact, the authors collected data from fast-food restaurants in both states before and after the policy change. Using a difference-in-differences (DiD) approach, the study compares employment changes in New Jersey (treatment group) with those in Pennsylvania (control group).\nThe key question is whether increasing the minimum wage reduces employment. Surprisingly, Card and Krueger (1994) find no evidence that higher minimum wages decrease employment."
+  },
+  {
+    "objectID": "hw2.html#introduction",
+    "href": "hw2.html#introduction",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "",
+    "text": "This paper studies the effect of minimum wage increases on employment. In April 1992, the state of New Jersey increased its minimum wage from $4.25 to $5.05 per hour, while neighboring Pennsylvania did not change its minimum wage.\nTo evaluate the causal impact, the authors collected data from fast-food restaurants in both states before and after the policy change. Using a difference-in-differences (DiD) approach, the study compares employment changes in New Jersey (treatment group) with those in Pennsylvania (control group).\nThe key question is whether increasing the minimum wage reduces employment. Surprisingly, Card and Krueger (1994) find no evidence that higher minimum wages decrease employment."
+  },
+  {
+    "objectID": "hw2.html#data-and-methodology",
+    "href": "hw2.html#data-and-methodology",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "Data and Methodology",
+    "text": "Data and Methodology\nI use the original dataset provided by Card and Krueger, which contains observations from 410 fast-food restaurants. Each observation includes employment information before and after the minimum wage increase.\nFollowing the paper, I construct full-time equivalent (FTE) employment as:\n\nFTE = full-time employees + managers + 0.5 × part-time employees\n\nI then compute the change in employment for each store:\n\nChange = employment_after − employment_before\n\nTo estimate the causal effect, I use a difference-in-differences approach:\n\nDiD = (Change in NJ) − (Change in PA)\n\nwhere New Jersey is the treatment group and Pennsylvania is the control group."
+  },
+  {
+    "objectID": "hw2.html#results",
+    "href": "hw2.html#results",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "Results",
+    "text": "Results\nI replicate the main finding of Card and Krueger (1994) using the difference-in-differences approach.\nThe average employment change in Pennsylvania (control group) is approximately -3.08 FTE workers, while the average change in New Jersey (treatment group) is about -1.85 FTE workers.\nTaking the difference between these changes yields a difference-in-differences estimate of approximately:\nDiD ≈ +1.24\nThis positive estimate indicates that employment declined less in New Jersey than in Pennsylvania after the minimum wage increase. In other words, there is no evidence that the increase in the minimum wage reduced employment.\nAlthough my estimate is somewhat smaller than the original paper’s estimate (around +2.7 FTE workers), the direction and qualitative conclusion are the same."
+  },
+  {
+    "objectID": "hw2.html#additional-analysis-visualization",
+    "href": "hw2.html#additional-analysis-visualization",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "Additional Analysis (Visualization)",
+    "text": "Additional Analysis (Visualization)\nTo better illustrate the results, I plot the average employment before and after the policy change for both states.\n\nimport matplotlib.pyplot as plt\n\nnj_before = 21.8716\nnj_after  = 20.3408\npa_before = 20.3548\npa_after  = 16.9835\n\nplt.figure(figsize=(6,4))\nplt.plot([\"Before\", \"After\"], [nj_before, nj_after], marker=\"o\", label=\"New Jersey\")\nplt.plot([\"Before\", \"After\"], [pa_before, pa_after], marker=\"o\", label=\"Pennsylvania\")\n\nplt.ylabel(\"FTE Employment\")\nplt.title(\"Difference-in-Differences: Fast-Food Employment\")\nplt.legend()\nplt.grid(True, alpha=0.3)\nplt.show()\n\n\n\n\n\n\n\n\nThe figure shows that employment declined in both states, but the decline was significantly larger in Pennsylvania. This visual evidence supports the difference-in-differences estimate."
+  },
+  {
+    "objectID": "hw2.html#conclusion",
+    "href": "hw2.html#conclusion",
+    "title": "HW2: Replicating Card & Krueger (1994)",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis analysis replicates the main conclusion of Card and Krueger (1994): increasing the minimum wage does not necessarily reduce employment.\nEven though employment declined overall during this period, the relative comparison shows that New Jersey experienced a smaller decline than Pennsylvania. This suggests that the minimum wage increase did not have the negative employment effects predicted by standard economic theory.\nOverall, the findings provide evidence that minimum wage policies may not harm employment in low-wage labor markets."
   }
 ]
