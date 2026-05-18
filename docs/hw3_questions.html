@@ -271,7 +271,7 @@ window.Quarto = {
 </section>
 <section id="exploring-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-data">Exploring the Data</h2>
-<div id="81f588db" class="cell" data-execution_count="1">
+<div id="96e3c198" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -340,7 +340,7 @@ window.Quarto = {
 </div>
 <section id="patent-counts-by-customer-status" class="level3">
 <h3 class="anchored" data-anchor-id="patent-counts-by-customer-status">Patent Counts by Customer Status</h3>
-<div id="dc927705" class="cell" data-execution_count="2">
+<div id="4717cb1c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> df[df[<span class="st">'iscustomer'</span>] <span class="op">==</span> <span class="dv">1</span>][<span class="st">'patents'</span>]</span>
@@ -388,7 +388,7 @@ window.Quarto = {
 </section>
 <section id="regional-distribution-by-customer-status" class="level3">
 <h3 class="anchored" data-anchor-id="regional-distribution-by-customer-status">Regional Distribution by Customer Status</h3>
-<div id="2950573c" class="cell" data-execution_count="3">
+<div id="1ad92f76" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>region_pct <span class="op">=</span> (</span>
@@ -429,7 +429,7 @@ window.Quarto = {
 </section>
 <section id="firm-age-by-customer-status" class="level3">
 <h3 class="anchored" data-anchor-id="firm-age-by-customer-status">Firm Age by Customer Status</h3>
-<div id="4bdfe06d" class="cell" data-execution_count="4">
+<div id="8018b281" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
@@ -491,7 +491,7 @@ window.Quarto = {
 </section>
 <section id="log-likelihood-function" class="level3">
 <h3 class="anchored" data-anchor-id="log-likelihood-function">Log-Likelihood Function</h3>
-<div id="240cc846" class="cell" data-execution_count="5">
+<div id="020ad6cd" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln  <span class="co"># log(Y!) = gammaln(Y+1), numerically stable</span></span>
@@ -506,7 +506,7 @@ window.Quarto = {
 </section>
 <section id="plotting-the-log-likelihood" class="level3">
 <h3 class="anchored" data-anchor-id="plotting-the-log-likelihood">Plotting the Log-Likelihood</h3>
-<div id="03a96628" class="cell" data-execution_count="6">
+<div id="7b922320" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df[<span class="st">'patents'</span>].values</span>
@@ -538,7 +538,7 @@ window.Quarto = {
 </section>
 <section id="numerical-mle-via-scipy.optimize" class="level3">
 <h3 class="anchored" data-anchor-id="numerical-mle-via-scipy.optimize">Numerical MLE via <code>scipy.optimize</code></h3>
-<div id="3d7ccb01" class="cell" data-execution_count="7">
+<div id="66fceb1d" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize_scalar</span>
@@ -570,7 +570,7 @@ Difference:         1.28e-07</code></pre>
 <p>We use the exponential link because <span class="math inline">\(\lambda_i\)</span> must be strictly positive, but the linear predictor <span class="math inline">\(X_i'\beta\)</span> can take any real value. The exponential function maps the real line to <span class="math inline">\((0, \infty)\)</span>, guaranteeing a valid rate parameter.</p>
 <section id="building-the-covariate-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="building-the-covariate-matrix">Building the Covariate Matrix</h3>
-<div id="3eed31bd" class="cell" data-execution_count="8">
+<div id="6fb22547" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct X matrix</span></span>
@@ -682,7 +682,7 @@ Columns: ['intercept', 'age', 'age2', 'iscustomer', 'Midwest', 'Northwest', 'Sou
 </section>
 <section id="log-likelihood-for-poisson-regression" class="level3">
 <h3 class="anchored" data-anchor-id="log-likelihood-for-poisson-regression">Log-Likelihood for Poisson Regression</h3>
-<div id="d20dc00f" class="cell" data-execution_count="9">
+<div id="7f260618" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poisson_regression_loglikelihood(beta, Y, X):</span>
@@ -695,7 +695,7 @@ Columns: ['intercept', 'age', 'age2', 'iscustomer', 'Midwest', 'Northwest', 'Sou
 </section>
 <section id="mle-via-scipy.optimize" class="level3">
 <h3 class="anchored" data-anchor-id="mle-via-scipy.optimize">MLE via <code>scipy.optimize</code></h3>
-<div id="7e6a9f61" class="cell" data-execution_count="10">
+<div id="9e947ed7" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
@@ -739,20 +739,20 @@ South               0.0         1.0      0.0
 Southwest           0.0         1.0      0.0</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_10437/2978435124.py:4: RuntimeWarning: overflow encountered in exp
+<pre><code>/tmp/ipykernel_13545/2978435124.py:4: RuntimeWarning: overflow encountered in exp
   lam = np.exp(eta)
 /home/jovyan/git/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:83: RuntimeWarning: overflow encountered in reduce
   return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 /home/jovyan/git/.venv/lib/python3.13/site-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
   df = [f_eval - f0 for f_eval in f_evals]
-/tmp/ipykernel_10437/2978435124.py:4: RuntimeWarning: overflow encountered in exp
+/tmp/ipykernel_13545/2978435124.py:4: RuntimeWarning: overflow encountered in exp
   lam = np.exp(eta)</code></pre>
 </div>
 </div>
 </section>
 <section id="verification-with-statsmodels" class="level3">
 <h3 class="anchored" data-anchor-id="verification-with-statsmodels">Verification with <code>statsmodels</code></h3>
-<div id="93b28923" class="cell" data-execution_count="11">
+<div id="f3167b28" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -786,7 +786,7 @@ Southwest             0.0     0.0214        1.0     0.0385</code></pre>
 </section>
 <section id="formatted-results-table" class="level3">
 <h3 class="anchored" data-anchor-id="formatted-results-table">Formatted Results Table</h3>
-<div id="fcb3be53" class="cell" data-execution_count="12">
+<div id="0c88f5d9" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> pd.DataFrame({</span>
@@ -832,7 +832,7 @@ Significance: *** p&lt;0.001, ** p&lt;0.01, * p&lt;0.05</code></pre>
 <section id="the-effect-of-blueprintys-software" class="level2">
 <h2 class="anchored" data-anchor-id="the-effect-of-blueprintys-software">The Effect of Blueprinty’s Software</h2>
 <p>Because Poisson regression is a multiplicative model, the coefficient on <code>iscustomer</code> cannot be directly interpreted as “X additional patents.” Instead, we use a <strong>counterfactual prediction</strong> approach: we predict the expected patent count for every firm twice — once assuming all firms are non-customers, and once assuming all firms are customers — and compute the average difference.</p>
-<div id="46a31d54" class="cell" data-execution_count="13">
+<div id="e7ae9435" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Counterfactual matrices</span></span>
@@ -858,7 +858,7 @@ Significance: *** p&lt;0.001, ** p&lt;0.01, * p&lt;0.05</code></pre>
 Relative increase:              23.07%</code></pre>
 </div>
 </div>
-<div id="3c7c8ae1" class="cell" data-execution_count="14">
+<div id="d5ddf6ff" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
