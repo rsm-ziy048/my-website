@@ -13,6 +13,8 @@ website:
         file: index.qmd
       - text: "About"
         file: about.qmd
+      - text: "HW3"
+        file: hw3_questions.qmd
 
     # ⭐ 关键部分（头像 + 按钮）
     logo: profile.jpg
