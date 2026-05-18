@@ -9,7 +9,7 @@
 <meta name="author" content="Zia">
 <meta name="dcterms.date" content="2026-05-17">
 
-<title>Poisson Regression and Maximum Likelihood Estimation – Zia Yan Portfolio</title>
+<title>Poisson Regression and Maximum Likelihood Estimation – Zia Yan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,18 +72,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ed459db1dd1791967da76cec726cb24f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-766ec7afe0f2e970d7e737dd880562c1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -141,60 +140,62 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./hw3_questions.html">HW3</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Zia Yan</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Myself</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./hw3_questions.html" aria-current="page"> 
+<span class="menu-text">Poisson Regression Analysis</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:ziy048@ucsd.edu"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/zixiaoyan"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ziayan-analytics"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./profile.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./profile.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="mailto:ziy048@ucsd.edu" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/zixiaoyan" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-    <a href="https://github.com/ziayan-analytics" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
-      </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./hw3_questions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">HW3</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -264,14 +265,14 @@ window.Quarto = {
 
 
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<h2 data-anchor-id="introduction">Introduction</h2>
 <p>Blueprinty is a software company that develops tools specifically designed to help engineering firms prepare and submit patent applications to the US Patent Office. Their marketing team wants to make the case that firms using Blueprinty’s software are more successful in getting their patents approved — a compelling claim if it holds up to scrutiny.</p>
 <p>To evaluate this, Blueprinty collected data on 1,500 mature (non-startup) engineering firms. For each firm, the dataset records the number of patents awarded over the last five years, the firm’s geographic region, its age since incorporation, and whether or not it is a Blueprinty customer.</p>
 <p>However, assessing the software’s true effect is not straightforward. Blueprinty’s customers are <strong>not selected at random</strong>: firms that choose to purchase the software may already be more motivated, better-resourced, or operating in more patent-friendly industries than non-customers. This means a simple comparison of patent counts between customers and non-customers could reflect these pre-existing differences rather than any effect of the software itself. To make a credible causal argument, we need to account for firm characteristics — particularly age and region — that may differ systematically between the two groups.</p>
 </section>
 <section id="exploring-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-the-data">Exploring the Data</h2>
-<div id="96e3c198" class="cell" data-execution_count="1">
+<h2 data-anchor-id="exploring-the-data">Exploring the Data</h2>
+<div id="7dc739d9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -339,8 +340,8 @@ window.Quarto = {
 </div>
 </div>
 <section id="patent-counts-by-customer-status" class="level3">
-<h3 class="anchored" data-anchor-id="patent-counts-by-customer-status">Patent Counts by Customer Status</h3>
-<div id="4717cb1c" class="cell" data-execution_count="2">
+<h3 data-anchor-id="patent-counts-by-customer-status">Patent Counts by Customer Status</h3>
+<div id="d7f04349" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> df[df[<span class="st">'iscustomer'</span>] <span class="op">==</span> <span class="dv">1</span>][<span class="st">'patents'</span>]</span>
@@ -387,8 +388,8 @@ window.Quarto = {
 <p>Blueprinty customers average <strong>4.13 patents</strong> over five years, compared to <strong>3.47</strong> for non-customers — a gap of about 0.66 patents. Both distributions are right-skewed and centered between 2 and 5, but the customer distribution has a noticeably heavier right tail, suggesting that some high-performing customer firms are pulling the mean up. That said, we cannot yet conclude that the software is responsible for this difference.</p>
 </section>
 <section id="regional-distribution-by-customer-status" class="level3">
-<h3 class="anchored" data-anchor-id="regional-distribution-by-customer-status">Regional Distribution by Customer Status</h3>
-<div id="1ad92f76" class="cell" data-execution_count="3">
+<h3 data-anchor-id="regional-distribution-by-customer-status">Regional Distribution by Customer Status</h3>
+<div id="cef623e1" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>region_pct <span class="op">=</span> (</span>
@@ -428,8 +429,8 @@ window.Quarto = {
 <p>The regional composition of customers and non-customers differs substantially. The <strong>Northeast</strong> dominates among Blueprinty customers (roughly 68% of customers), while non-customers are spread much more evenly across all five regions. This is important: if Northeast firms tend to file more patents regardless of software use — perhaps due to the concentration of technology firms in that corridor — then the raw customer premium in patent counts could simply be a Northeast effect in disguise.</p>
 </section>
 <section id="firm-age-by-customer-status" class="level3">
-<h3 class="anchored" data-anchor-id="firm-age-by-customer-status">Firm Age by Customer Status</h3>
-<div id="8018b281" class="cell" data-execution_count="4">
+<h3 data-anchor-id="firm-age-by-customer-status">Firm Age by Customer Status</h3>
+<div id="b5dcbd33" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
@@ -473,10 +474,10 @@ window.Quarto = {
 </section>
 </section>
 <section id="a-simple-poisson-model-via-maximum-likelihood" class="level2">
-<h2 class="anchored" data-anchor-id="a-simple-poisson-model-via-maximum-likelihood">A Simple Poisson Model via Maximum Likelihood</h2>
+<h2 data-anchor-id="a-simple-poisson-model-via-maximum-likelihood">A Simple Poisson Model via Maximum Likelihood</h2>
 <p>Patent counts are non-negative integers, which makes the Normal distribution a poor modeling choice — it assigns probability mass to negative values and to non-integers. The <strong>Poisson distribution</strong> is the natural starting point for count outcomes: it is defined only on non-negative integers, and its single parameter <span class="math inline">\(\lambda &gt; 0\)</span> equals both the mean and variance of the distribution.</p>
 <section id="deriving-the-log-likelihood" class="level3">
-<h3 class="anchored" data-anchor-id="deriving-the-log-likelihood">Deriving the Log-Likelihood</h3>
+<h3 data-anchor-id="deriving-the-log-likelihood">Deriving the Log-Likelihood</h3>
 <p>For a single observation <span class="math inline">\(Y_i \sim \text{Poisson}(\lambda)\)</span>, the probability mass function is:</p>
 <p><span class="math display">\[f(Y_i \mid \lambda) = \frac{e^{-\lambda} \lambda^{Y_i}}{Y_i!}\]</span></p>
 <p>Assuming the <span class="math inline">\(n\)</span> observations are i.i.d., the <strong>joint likelihood</strong> is the product of individual PMFs:</p>
@@ -490,8 +491,8 @@ window.Quarto = {
 <p>The MLE is simply the sample mean — which is intuitive because <span class="math inline">\(\lambda\)</span> is the mean of the Poisson distribution.</p>
 </section>
 <section id="log-likelihood-function" class="level3">
-<h3 class="anchored" data-anchor-id="log-likelihood-function">Log-Likelihood Function</h3>
-<div id="020ad6cd" class="cell" data-execution_count="5">
+<h3 data-anchor-id="log-likelihood-function">Log-Likelihood Function</h3>
+<div id="8e5509f5" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln  <span class="co"># log(Y!) = gammaln(Y+1), numerically stable</span></span>
@@ -505,8 +506,8 @@ window.Quarto = {
 </div>
 </section>
 <section id="plotting-the-log-likelihood" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-the-log-likelihood">Plotting the Log-Likelihood</h3>
-<div id="7b922320" class="cell" data-execution_count="6">
+<h3 data-anchor-id="plotting-the-log-likelihood">Plotting the Log-Likelihood</h3>
+<div id="a67417b0" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df[<span class="st">'patents'</span>].values</span>
@@ -537,8 +538,8 @@ window.Quarto = {
 <p>The curve is concave and has a single peak at <span class="math inline">\(\lambda \approx 3.68\)</span>, which corresponds to the sample mean <span class="math inline">\(\bar{Y}\)</span>. This is exactly the analytic MLE derived above. The steep drop-off on either side illustrates that values of <span class="math inline">\(\lambda\)</span> far from the sample mean are very unlikely given the data.</p>
 </section>
 <section id="numerical-mle-via-scipy.optimize" class="level3">
-<h3 class="anchored" data-anchor-id="numerical-mle-via-scipy.optimize">Numerical MLE via <code>scipy.optimize</code></h3>
-<div id="66fceb1d" class="cell" data-execution_count="7">
+<h3 data-anchor-id="numerical-mle-via-scipy.optimize">Numerical MLE via <code>scipy.optimize</code></h3>
+<div id="397421ad" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize_scalar</span>
@@ -564,13 +565,13 @@ Difference:         1.28e-07</code></pre>
 </section>
 </section>
 <section id="poisson-regression" class="level2">
-<h2 class="anchored" data-anchor-id="poisson-regression">Poisson Regression</h2>
+<h2 data-anchor-id="poisson-regression">Poisson Regression</h2>
 <p>So far we have assumed that every firm shares the same patent rate <span class="math inline">\(\lambda\)</span>. In reality, firms differ in age, region, and customer status, and these characteristics likely drive differences in patent output. The <strong>Poisson regression</strong> model relaxes the single-<span class="math inline">\(\lambda\)</span> assumption by letting each firm’s rate depend on its own covariate vector:</p>
 <p><span class="math display">\[Y_i \sim \text{Poisson}(\lambda_i), \qquad \lambda_i = \exp(X_i'\beta)\]</span></p>
 <p>We use the exponential link because <span class="math inline">\(\lambda_i\)</span> must be strictly positive, but the linear predictor <span class="math inline">\(X_i'\beta\)</span> can take any real value. The exponential function maps the real line to <span class="math inline">\((0, \infty)\)</span>, guaranteeing a valid rate parameter.</p>
 <section id="building-the-covariate-matrix" class="level3">
-<h3 class="anchored" data-anchor-id="building-the-covariate-matrix">Building the Covariate Matrix</h3>
-<div id="6fb22547" class="cell" data-execution_count="8">
+<h3 data-anchor-id="building-the-covariate-matrix">Building the Covariate Matrix</h3>
+<div id="fcd7f5b4" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct X matrix</span></span>
@@ -681,8 +682,8 @@ Columns: ['intercept', 'age', 'age2', 'iscustomer', 'Midwest', 'Northwest', 'Sou
 <p>We include <strong>age squared</strong> because the relationship between firm age and patent output is unlikely to be perfectly linear — very young firms may ramp up slowly, peak at some intermediate age, then plateau. We drop <strong>Northeast</strong> as the reference region to avoid perfect collinearity: with an intercept in the model, including all five region dummies would create a column that is an exact linear combination of the others.</p>
 </section>
 <section id="log-likelihood-for-poisson-regression" class="level3">
-<h3 class="anchored" data-anchor-id="log-likelihood-for-poisson-regression">Log-Likelihood for Poisson Regression</h3>
-<div id="7f260618" class="cell" data-execution_count="9">
+<h3 data-anchor-id="log-likelihood-for-poisson-regression">Log-Likelihood for Poisson Regression</h3>
+<div id="2dbd751d" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poisson_regression_loglikelihood(beta, Y, X):</span>
@@ -694,8 +695,8 @@ Columns: ['intercept', 'age', 'age2', 'iscustomer', 'Midwest', 'Northwest', 'Sou
 </div>
 </section>
 <section id="mle-via-scipy.optimize" class="level3">
-<h3 class="anchored" data-anchor-id="mle-via-scipy.optimize">MLE via <code>scipy.optimize</code></h3>
-<div id="9e947ed7" class="cell" data-execution_count="10">
+<h3 data-anchor-id="mle-via-scipy.optimize">MLE via <code>scipy.optimize</code></h3>
+<div id="0592170a" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
@@ -739,20 +740,20 @@ South               0.0         1.0      0.0
 Southwest           0.0         1.0      0.0</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_13545/2978435124.py:4: RuntimeWarning: overflow encountered in exp
+<pre><code>/tmp/ipykernel_7005/2978435124.py:4: RuntimeWarning: overflow encountered in exp
   lam = np.exp(eta)
 /home/jovyan/git/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:83: RuntimeWarning: overflow encountered in reduce
   return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 /home/jovyan/git/.venv/lib/python3.13/site-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
   df = [f_eval - f0 for f_eval in f_evals]
-/tmp/ipykernel_13545/2978435124.py:4: RuntimeWarning: overflow encountered in exp
+/tmp/ipykernel_7005/2978435124.py:4: RuntimeWarning: overflow encountered in exp
   lam = np.exp(eta)</code></pre>
 </div>
 </div>
 </section>
 <section id="verification-with-statsmodels" class="level3">
-<h3 class="anchored" data-anchor-id="verification-with-statsmodels">Verification with <code>statsmodels</code></h3>
-<div id="f3167b28" class="cell" data-execution_count="11">
+<h3 data-anchor-id="verification-with-statsmodels">Verification with <code>statsmodels</code></h3>
+<div id="22f629a1" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -785,8 +786,8 @@ Southwest             0.0     0.0214        1.0     0.0385</code></pre>
 <p>The coefficient estimates from our manual MLE and <code>sm.GLM()</code> match closely. Standard errors may differ slightly: <code>sm.GLM()</code> computes standard errors from the <strong>observed Fisher information</strong> (analytic second derivatives of the log-likelihood), while our BFGS optimizer uses a numerical approximation to the inverse Hessian. Both are valid, but the analytic approach in <code>sm.GLM()</code> is generally more precise.</p>
 </section>
 <section id="formatted-results-table" class="level3">
-<h3 class="anchored" data-anchor-id="formatted-results-table">Formatted Results Table</h3>
-<div id="0c88f5d9" class="cell" data-execution_count="12">
+<h3 data-anchor-id="formatted-results-table">Formatted Results Table</h3>
+<div id="1a69c0fc" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> pd.DataFrame({</span>
@@ -819,7 +820,7 @@ Significance: *** p&lt;0.001, ** p&lt;0.01, * p&lt;0.05</code></pre>
 </div>
 </section>
 <section id="interpreting-the-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="interpreting-the-coefficients">Interpreting the Coefficients</h3>
+<h3 data-anchor-id="interpreting-the-coefficients">Interpreting the Coefficients</h3>
 <p>The Poisson regression coefficients are log rate-ratios: a one-unit increase in a covariate multiplies the expected patent count by <span class="math inline">\(\exp(\beta)\)</span>.</p>
 <ul>
 <li><strong><code>iscustomer</code></strong>: The positive coefficient means Blueprinty customers have a higher expected patent count than comparable non-customers, controlling for age and region. Specifically, <span class="math inline">\(\exp(\hat{\beta}_{\text{customer}})\)</span> gives the multiplicative factor.</li>
@@ -830,9 +831,9 @@ Significance: *** p&lt;0.001, ** p&lt;0.01, * p&lt;0.05</code></pre>
 </section>
 </section>
 <section id="the-effect-of-blueprintys-software" class="level2">
-<h2 class="anchored" data-anchor-id="the-effect-of-blueprintys-software">The Effect of Blueprinty’s Software</h2>
+<h2 data-anchor-id="the-effect-of-blueprintys-software">The Effect of Blueprinty’s Software</h2>
 <p>Because Poisson regression is a multiplicative model, the coefficient on <code>iscustomer</code> cannot be directly interpreted as “X additional patents.” Instead, we use a <strong>counterfactual prediction</strong> approach: we predict the expected patent count for every firm twice — once assuming all firms are non-customers, and once assuming all firms are customers — and compute the average difference.</p>
-<div id="e7ae9435" class="cell" data-execution_count="13">
+<div id="edeeca6b" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Counterfactual matrices</span></span>
@@ -858,7 +859,7 @@ Significance: *** p&lt;0.001, ** p&lt;0.01, * p&lt;0.05</code></pre>
 Relative increase:              23.07%</code></pre>
 </div>
 </div>
-<div id="d5ddf6ff" class="cell" data-execution_count="14">
+<div id="3ad6b6c2" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -877,13 +878,6 @@ Relative increase:              23.07%</code></pre>
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

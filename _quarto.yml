@@ -3,23 +3,18 @@ project:
   output-dir: docs
 
 website:
-  title: "Zia Yan Portfolio"
-
-  sidebar:
-    style: "docked"
-    search: false
-    contents:
-      - text: "Home"
+  title: "Zia Yan"
+  navbar:
+    background: "#2d2d2d"
+    foreground: "white"
+    left:
+      - text: "Myself"
         file: index.qmd
-      - text: "About"
+      - text: "Projects"
         file: about.qmd
-      - text: "HW3"
+      - text: "Poisson Regression Analysis"
         file: hw3_questions.qmd
-
-    # ⭐ 关键部分（头像 + 按钮）
-    logo: profile.jpg
-
-    tools:
+    right:
       - icon: envelope
         href: mailto:ziy048@ucsd.edu
       - icon: linkedin
@@ -29,6 +24,8 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: darkly
+    anchor-sections: false
+    
 
 

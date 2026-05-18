@@ -1,22 +1,82 @@
 ---
-title: "About Me"
+page-layout: full
+margin-left: "0"
+margin-right: "0"
 ---
 
+```{=html}
+<style>
+.navbar-nav .nav-link.active {
+  color: #9e9e9e !important;
+}
 
-Hi, I'm Zia Yan, a Master of Business Analytics student at UC San Diego.
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-I have a strong background in data analytics, machine learning, and business strategy, with hands-on experience across consulting, finance, and supply chain analytics.
+body { font-family: 'Inter', sans-serif !important; }
 
-## Education
-- MS in Business Analytics, UC San Diego (GPA: 3.6)
-- MS in Public Policy, UC San Diego (GPA: 3.8)
-- BS in Business Management, University of Nottingham
+.proj-hero {
+  background: linear-gradient(135deg, #111111, #1e1e1e, #2d2d2d);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+  margin-left: -100px;
+  margin-right: -100px;
+  margin-bottom: 40px;
+}
+.proj-hero h1 { font-size: 2.4em; font-weight: 700; color: white !important; margin-bottom: 10px; }
+.proj-hero p { color: #cde; font-size: 1.05em; max-width: 600px; margin: 0 auto; }
 
-## Interests
-- Machine Learning & AI
-- Data-Driven Decision Making
-- Predictive Modeling & Forecasting
-- Business Analytics & Strategy
+.proj-card {
+  background: linear-gradient(135deg, #111111, #1e1e1e, #2d2d2d);
+  color: white;
+  border-radius: 12px;
+  padding: 28px 28px;
+  border-left: 4px solid #9e9e9e;
+  margin-bottom: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.proj-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.proj-card h3 { font-size: 1.1em; font-weight: 700; color: white; margin-bottom: 6px; }
+.proj-card .tech { color:white; font-size: 0.85em; margin-bottom: 12px; }
+.proj-card p { color: #cde; font-size: 0.92em; line-height: 1.7; margin-bottom: 12px; }
+.proj-card a {
+  display: inline-block; padding: 7px 18px;
+  border-radius: 30px; border: 1.5px solid #9e9e9e; color: #9e9e9e;
+  text-decoration: none; font-size: 0.88em; transition: all 0.2s;
+}
+.proj-card a:hover { background: #9e9e9e; color: #0f2027; }
 
-## Career Goal
-I aim to leverage data analytics and machine learning to solve real-world business problems and drive impactful decision-making.
+</style>
+
+
+```
+
+```{=html}
+<div class="proj-card">
+  <h3> Restaurant Recommendation System</h3>
+  <div class="tech">Python · TensorFlow · LightGCN · Collaborative Filtering</div>
+  <p>Top-K restaurant recommendation system built on 1.5M+ Google Local reviews. Reformulated explicit ratings as implicit feedback for personalized ranking across 98K+ users and 28K+ businesses. Trained a LightGCN graph neural network with BPR loss, achieving a <strong>20% improvement</strong> in Recall@10 and NDCG@10 over Popularity, Item-Item Jaccard, and Matrix Factorization baselines.</p>
+  <a href="https://github.com/ziayan-analytics/recommendation-system-lightgcn" target="_blank">→ View on GitHub</a>
+</div>
+
+<div class="proj-card">
+  <h3> Sentiment Analysis: DAN + BPE</h3>
+  <div class="tech">Python · PyTorch · NLP · Deep Learning</div>
+  <p>Implemented sentiment classification using Deep Averaging Networks (DAN) with pretrained GloVe embeddings, achieving ~79–80% dev accuracy. Also built a subword DAN variant using Byte Pair Encoding (BPE) with randomly initialized embeddings, and compared performance across vocabulary sizes (500, 1000, 3000). Includes a theoretical Skip-gram analysis.</p>
+  <a href="https://github.com/ziayan-analytics/sentiment-analysis-dan-bpe" target="_blank">→ View on GitHub</a>
+</div>
+
+<div class="proj-card">
+  <h3> CloudFront Log Processing with AWS EMR + Hive</h3>
+  <div class="tech">AWS EMR · HiveQL · Amazon S3 · Distributed Computing</div>
+  <p>End-to-end cloud data pipeline that parses semi-structured CloudFront access logs at scale. Ingests raw logs from S3 into an Amazon EMR cluster, builds a structured Hive external table using RegexSerDe, runs HiveQL aggregations (request volume by OS), and writes outputs back to S3. Same workflow scales to millions of records.</p>
+  <a href="https://github.com/ziayan-analytics/aws-emr-hive-log-processing" target="_blank">→ View on GitHub</a>
+</div>
+
+<div class="proj-card">
+  <h3> AI Feedback Automation Agent</h3>
+  <div class="tech">TypeScript · Claude API · Cloudflare Workers</div>
+  <p>Built AI-assisted workflow automation pipelines using the Claude API and Cloudflare Workers to automate feedback analysis, summarization, and operational reporting. Developed structured LLM-based reporting workflows to standardize outputs and improve scalable decision-making.</p>
+  <a href="https://github.com/ziayan-analytics/feedback-agent" target="_blank">→ View on GitHub</a>
+</div>
+```
